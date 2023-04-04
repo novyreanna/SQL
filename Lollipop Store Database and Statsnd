@@ -1,0 +1,25 @@
+--Create a database for a lollipop store's flavors.
+
+CREATE TABLE lollipalooza (id INTEGER PRIMARY KEY, flavors TEXT, price INTEGER, customer_rating_1_to_10 INTEGER);
+
+INSERT INTO lollipalooza VALUES(1, "coconut", 3, 9);
+INSERT INTO lollipalooza VALUES(2, "raspberry", 2.50, 5);
+INSERT INTO lollipalooza VALUES(3, "bubblegum", 3, 7);
+INSERT INTO lollipalooza VALUES(4, "white_chocolate", 2.75, 5);
+INSERT INTO lollipalooza VALUES(5, "pina_colada", 4, 9);
+INSERT INTO lollipalooza VALUES(6,"mixed_berry", 8, 4);
+INSERT INTO lollipalooza VALUES(7, "cherry", 3, 4);
+INSERT INTO lollipalooza VALUES(8, "lemonade", 2.50, 6);
+INSERT INTO lollipalooza VALUES(9, "black_licorice", 4, 2);
+INSERT INTO lollipalooza VALUES(10, "strawberry", 4, 8);
+INSERT INTO lollipalooza VALUES(11, "salted_caramel", 3.50, 6);
+INSERT INTO lollipalooza VALUES(12, "cotton_candy", 4, 8);
+INSERT INTO lollipalooza VALUES(13, "mangonada", 4, 9);
+INSERT INTO lollipalooza VALUES(14, "mystery", 3.50, 4);
+INSERT INTO lollipalooza VALUES(15, "grape", 4, 4);
+
+--Finding the average price of the lollipops.
+SELECT AVG(price) FROM lollipalooza;
+
+--Arrange the lollipop flavors by customer rating in descending order.
+SELECT * FROM lollipalooza ORDER BY customer_rating_1_to_10 DESC;
