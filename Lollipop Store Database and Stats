@@ -18,8 +18,8 @@ INSERT INTO lollipalooza VALUES(13, "mangonada", 4, 9);
 INSERT INTO lollipalooza VALUES(14, "mystery", 3.50, 4);
 INSERT INTO lollipalooza VALUES(15, "grape", 4, 4);
 
-/*Finding the average price of the lollipops.*/
+--Finding the average price of the lollipops.
 SELECT AVG(price) FROM lollipalooza;
 
-/*Arrange the lollipop flavors by customer rating in descending order.*/
+--Arrange the lollipop flavors by customer rating in descending order
 SELECT * FROM lollipalooza ORDER BY customer_rating_1_to_10 DESC;
