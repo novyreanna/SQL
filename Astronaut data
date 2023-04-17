@@ -1,6 +1,7 @@
 /* Source:
   https://www.kaggle.com/nasa/astronaut-yearbook
   dataset from Khan Academy
+  <script src="https://gist.github.com/pamelafox/b98e03caca7d1ec14394a90ec1512cff.js"></script>
 */
 
 CREATE TABLE astronauts(
