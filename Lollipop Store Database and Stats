@@ -1,6 +1,12 @@
 --Create a database for a lollipop store's flavors.
 
-CREATE TABLE lollipalooza (id INTEGER PRIMARY KEY, flavors TEXT, price INTEGER, customer_rating_1_to_10 INTEGER);
+CREATE TABLE lollipalooza (
+id INTEGER PRIMARY KEY, 
+flavors TEXT, 
+price INTEGER, 
+customer_rating_1_to_10 INTEGER
+)
+;
 
 INSERT INTO lollipalooza VALUES(1, "coconut", 3, 9);
 INSERT INTO lollipalooza VALUES(2, "raspberry", 2.50, 5);
@@ -22,4 +28,4 @@ INSERT INTO lollipalooza VALUES(15, "grape", 4, 4);
 SELECT AVG(price) FROM lollipalooza;
 
 --Arrange the lollipop flavors by customer rating in descending order
-SELECT * FROM lollipalooza ORDER BY customer_rating_1_to_10 DESC;
+SELECT flavors FROM lollipalooza ORDER BY customer_rating_1_to_10 DESC;
