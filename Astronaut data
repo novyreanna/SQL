@@ -147,20 +147,32 @@ INSERT INTO astronauts(Name,Year,GroupNum,Status,Birth_Date,Birth_Place,Gender,A
 INSERT INTO astronauts(Name,Year,GroupNum,Status,Birth_Date,Birth_Place,Gender,Alma_Mater,Undergraduate_Major,Graduate_Major,Military_Rank,Military_Branch,Space_Flights,Space_Flight_hr,Space_Walks,Space_Walks_hr,Missions,Death_Date,Death_Mission) VALUES ('F. Andrew Gaffney',NULL,NULL,'Retired','6/9/1946','Carlsbad, NM','Male','University of California-Berkeley; University of New Mexico','Psychology','Medicine',NULL,NULL,1,218,0,0,'STS-40 (Columbia)',NULL,NULL);
 
 --Identifying astronauts that had a high military rank or went to USAF Academy. Arranged by name alphabetically and gender
-SELECT Name, Year, Gender from astronauts WHERE Military_Branch = "US Air Force Academy%" OR Military_Rank > 3
-ORDER BY Gender, Name;
+SELECT Name, Year, Gender 
+FROM astronauts 
+WHERE Military_Branch = "US Air Force Academy%" OR Military_Rank > 3
+ORDER BY Gender, Name
+;
 
 --Rounding the average amount of Space flights from the astronauts
-SELECT ROUND(AVG(Space_Flights)) AS Average_Flights FROM astronauts;
+SELECT ROUND(AVG(Space_Flights)) AS Average_Flights 
+FROM astronauts
+;
 
 --Identifying the maximum military rank 
-SELECT Name, MAX(Military_Rank) AS Highest_Military_Rank FROM astronauts;
+SELECT Name, MAX(Military_Rank) AS Highest_Military_Rank 
+FROM astronauts
+;
 
 --Identifying the minimum military rank
-SELECT Name, MIN(Military_Rank) AS Lowest_Military_Rank FROM astronauts;
+SELECT Name, MIN(Military_Rank) AS Lowest_Military_Rank 
+FROM astronauts
+;
 
 --Identifying the Undergraduate majors of the astronauts and organizing them by how common they were from greatest to least
-SELECT Undergraduate_Major, COUNT(Undergraduate_Major) AS Major_Count FROM astronauts 
+SELECT Undergraduate_Major, COUNT(Undergraduate_Major) AS Major_Count 
+FROM astronauts 
 WHERE Undergraduate_Major IS NOT NULL
-GROUP BY Undergraduate_Major ORDER BY Major_Count DESC;
+GROUP BY Undergraduate_Major 
+ORDER BY Major_Count DESC
+;
 
