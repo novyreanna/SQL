@@ -1,0 +1,52 @@
+--These are some questions we were given from the SQL Bootcamp on Udemy by Jose Portilla. 
+
+--How many payment transactions were greater than $5.00?
+SELECT COUNT(amount) FROM payment
+WHERE amount > 5.00;
+
+--How many actors have a first name that starts with the letter P?
+SELECT COUNT(actor_id) FROM actor 
+WHERE first_name LIKE 'P%';
+
+--How many unique districts are our customers from?
+SELECT COUNT(DISTINCT(district)) FROM address;
+
+--Now find the names of the districts, and sort them in alphabetical order.
+SELECT DISTINCT(district) AS dist FROM address
+ORDER BY dist;
+
+--How many films have a rating of R and a replacement cost between $5 and $15?
+SELECT COUNT(*) FROM film 
+WHERE rating = 'R'
+AND replacement_cost BETWEEN 5 AND 15;
+
+--How many films have the word Truman somewhere in the title?
+SELECT title FROM film 
+WHERE title ILIKE '%Truman%';
+
+/*There are 2 staff members, with staff IDs 1 and 2. 
+They want to give a bonus to the staff member that handled the most payments. 
+(The most number of payments processed, not total dollar amount.) 
+How many payments did each staff member handle, and who gets the bonus? */
+
+SELECT staff_id, COUNT(amount) FROM payment
+GROUP BY staff_id;
+
+--Staff ID 1 got 7292, and Staff ID 2 got 7304, so Staff ID 2 wins the bonus
+
+/*Corporate HQ is conducting a study on the relationship between replacement cost and a movie MPAA rating (ex. G, PG, R, etc).
+What is the average replacement cost per MPAA rating? */
+Note: I will be rounding to 2 decimal places.
+SELECT rating, ROUND(AVG(replacement_cost),2) AS replace_cost FROM film
+GROUP BY rating;
+
+/* They are running a promotion to reward their top 5 customers with coupons. 
+What are the customer IDs of the top 5 customers by total spend? */
+SELECT customer_id, SUM(amount) FROM payment 
+GROUP BY customer_id 
+ORDER BY SUM(amount) DESC
+LIMIT 5;
+
+/* They are launching a platinum service for the most loyal customers. 
+They will assign platinum status to customers that have had 40 or more transaction payments. 
+What customer IDs are eligible for platinum status? */
